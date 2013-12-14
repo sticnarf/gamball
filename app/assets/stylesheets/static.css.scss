@@ -1,0 +1,35 @@
+// Place all the styles related to the static controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.masthead{
+  position: relative;
+  overflow: auto;
+  background: url('masthead.jpg') no-repeat;
+  background-size: 100% 140%;
+  height: 100%;
+  color: #FFFFFF;
+  .intro{
+    float: right;
+    text-align: right;
+    padding-top: 80px;
+    padding-right: 150px;
+    #brand{
+      font-size: 6rem;
+
+    }
+    h2{
+      margin-top: -5px;
+      margin-bottom: 45px;
+      font-weight: normal;
+    }
+    #reg{
+      background-color: #FFA928;
+      color: #E84E0C;
+      margin-top: 40px;
+      margin-bottom: 60px;
+      margin-left: 40px;
+      font-size: 1.5rem;
+    }
+  }
+
+}

@@ -10,4 +10,12 @@
  *
  *= require_self
  *= require_tree .
+ *= require semantic.css
  */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
