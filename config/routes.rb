@@ -1,6 +1,7 @@
 Gamball::Application.routes.draw do
   get "static/index"
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   root 'static#index'
   # The priority is based upon order of creation: first created -> highest priority.

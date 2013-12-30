@@ -12,3 +12,4 @@
     <td><%= @user.password_digest %></td>
   </tr>
 </table>
+<%= link_to 'Logout', session_path, :method => :delete %>

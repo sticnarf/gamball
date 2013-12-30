@@ -1,5 +1,6 @@
 class StaticController < ApplicationController
-  def index
+  before_action :user_not_signed_in, :only => [:index]
 
+  def index
   end
 end

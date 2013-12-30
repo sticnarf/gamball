@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :user_not_signed_in, :only => [:new, :create]
+  before_action :user_signed_in, :only => [:show]
+
   def show
     @user = User.find(params[:id])
   end
@@ -10,6 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      sign_in(@user)
       redirect_to user_url(@user)
     else
       render 'new'
