@@ -33,11 +33,16 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.14.0'
+  gem 'factory_girl_rails', '~> 4.2.1'
 end
 
 group :test do
-  gem 'capybara'
+  gem 'faker', '~> 1.1.2'
+  gem 'capybara', '~> 2.1.0'
+  gem 'launchy', '~> 2.3.0'
+  gem 'selenium-webdriver', '~> 2.39.0'
+  gem 'rubyzip', '~> 1.0'
 end
 
 # Use ActiveModel has_secure_password
