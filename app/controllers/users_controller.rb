@@ -1,13 +1,19 @@
 class UsersController < ApplicationController
-  before_action :user_not_signed_in, :only => [:new, :create]
+  before_action :user_not_signed_in, :only => [:new, :create, :index]
   before_action :user_signed_in, :only => [:show]
 
   def show
     @user = User.find(params[:id])
   end
 
+  def index
+  end
+
   def new
     @user = User.new
+    if request.headers['X-PJAX']
+      render :layout => false
+    end
   end
 
   def create
@@ -16,7 +22,7 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to user_url(@user)
     else
-      render 'new'
+      render :template => 'users/new', :layout => false
     end
   end
 

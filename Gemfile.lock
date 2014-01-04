@@ -1,3 +1,17 @@
+GIT
+  remote: git://github.com/svenfuchs/i18n.git
+  revision: 8fc94e7e9ec20396e974b0549cf499662238bf56
+  specs:
+    i18n (0.6.9)
+
+GIT
+  remote: git://github.com/wormful/rails-i18n.git
+  revision: cfaf7437351e21a89140e68a74682ee314e56b5d
+  specs:
+    rails-i18n (4.0.1)
+      i18n (~> 0.6)
+      rails (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,6 +42,8 @@ GEM
     addressable (2.3.5)
     arel (4.0.1)
     atomic (1.1.14)
+    autoprefixer-rails (1.0.20140103)
+      execjs
     bcrypt-ruby (3.1.2)
     builder (3.1.4)
     capybara (2.1.0)
@@ -45,6 +61,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    commonjs (0.2.7)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
@@ -57,7 +74,6 @@ GEM
       i18n (~> 0.5)
     ffi (1.9.3)
     hike (1.2.3)
-    i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -67,6 +83,12 @@ GEM
     json (1.8.1)
     launchy (2.3.0)
       addressable (~> 2.3)
+    less (2.4.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.4.2)
+      actionpack (>= 3.1)
+      less (~> 2.4.0)
+    libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -97,6 +119,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    ref (1.0.5)
     rspec-core (2.14.7)
     rspec-expectations (2.14.4)
       diff-lcs (>= 1.1.3, < 2.0)
@@ -123,6 +146,9 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
+    semantic-ui-rails (0.11.0)
+      autoprefixer-rails
+      less-rails
     sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -132,6 +158,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    therubyracer (0.12.0)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.18.1)
     thread_safe (0.1.3)
       atomic
@@ -153,20 +182,26 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bcrypt-ruby (~> 3.1.2)
   capybara (~> 2.1.0)
   coffee-rails (~> 4.0.0)
   factory_girl_rails (~> 4.2.1)
   faker (~> 1.1.2)
+  i18n!
   jbuilder (~> 1.2)
   jquery-rails
   launchy (~> 2.3.0)
+  less-rails (~> 2.4.2)
   pg
   rails (= 4.0.2)
+  rails-i18n!
   rspec-rails (~> 2.14.0)
   rubyzip (~> 1.0)
   sass-rails (~> 4.0.0)
   sdoc
   selenium-webdriver (~> 2.39.0)
+  semantic-ui-rails
+  therubyracer
   turbolinks
   uglifier (>= 1.3.0)

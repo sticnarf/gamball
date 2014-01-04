@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
 
   def user_signed_in
     unless signed_in?
-      flash[:warning] = "You need to sign in to do this"
       redirect_to new_session_url
     end
   end

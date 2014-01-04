@@ -1,7 +1,9 @@
 <div class="masthead">
   <div class="intro">
     <h1 class="ui header" id="brand">Gamball</h1>
+
     <h2 class="ui header">这是一个虚拟的足彩网站</h2>
+
     <h2 class="ui header">无需花费一分钱，你就可以免费享受和你的朋友们一起足彩的乐趣</h2>
     <%= link_to new_user_path, class: "ui large inverted animated fade button", id: "reg" do %>
         <div class="visible content">还没有账号？</div>
@@ -12,4 +14,5 @@
         <div class="hidden content">登录！</div>
     <% end %>
   </div>
+  <div id="pjax-container"></div>
 </div>

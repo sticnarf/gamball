@@ -18,8 +18,6 @@
 
     }
     h2{
-      margin-top: -5px;
-      margin-bottom: 45px;
       font-weight: normal;
     }
     #reg, #login {
@@ -31,5 +29,17 @@
       font-size: 1.5rem;
     }
   }
-
+  #pjax-container {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 500px;
+    padding-bottom: 100px;
+    label {
+      color: #BBBBBB;
+    }
+    .label {
+      text-transform: capitalize;
+    }
+  }
 }

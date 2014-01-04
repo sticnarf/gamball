@@ -16,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -56,3 +56,9 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'less-rails', '~> 2.4.2'
+gem 'autoprefixer-rails'
+gem 'semantic-ui-rails'
+gem 'i18n', github: 'svenfuchs/i18n'
+gem 'rails-i18n', github: 'wormful/rails-i18n'
