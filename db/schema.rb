@@ -11,10 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131230082413) do
+ActiveRecord::Schema.define(version: 20140111030520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bets", force: true do |t|
+    t.datetime "time"
+    t.json "data"
+    t.integer "user_id"
+    t.integer "gamble_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gambles", force: true do |t|
+    t.string "type"
+    t.json "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "leagues", force: true do |t|
+    t.string "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "matches", force: true do |t|
+    t.datetime "time"
+    t.integer "home_id"
+    t.integer "away_id"
+    t.integer "league_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", force: true do |t|
+    t.string "name"
+    t.integer "league_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string "email"
