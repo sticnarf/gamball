@@ -18,49 +18,49 @@ ActiveRecord::Schema.define(version: 20140111030520) do
 
   create_table "bets", force: true do |t|
     t.datetime "time"
-    t.json "data"
-    t.integer "user_id"
-    t.integer "gamble_id"
+    t.json     "data"
+    t.integer  "user_id"
+    t.integer  "gamble_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "gambles", force: true do |t|
-    t.string "type"
-    t.json "data"
+    t.string   "type"
+    t.json     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "leagues", force: true do |t|
-    t.string "name"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "matches", force: true do |t|
     t.datetime "time"
-    t.integer "home_id"
-    t.integer "away_id"
-    t.integer "league_id"
+    t.integer  "home_id"
+    t.integer  "away_id"
+    t.integer  "league_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "teams", force: true do |t|
-    t.string "name"
-    t.integer "league_id"
+    t.string   "name"
+    t.integer  "league_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string "email"
-    t.string "name"
-    t.string "password_digest"
+    t.string   "email"
+    t.string   "name"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "remember_token"
+    t.string   "remember_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
