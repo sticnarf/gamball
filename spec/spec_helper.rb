@@ -41,6 +41,8 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include FactoryGirl::Syntax::Methods
+  
+  Capybara.javascript_driver = :webkit
 
   I18n.enforce_available_locales = false
 end
