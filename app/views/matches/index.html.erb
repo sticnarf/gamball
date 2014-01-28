@@ -15,16 +15,18 @@
   </thead>
   <tbody>
     <% @matches.each do |m| %>
-    <% data = m.gamble(:standard).data %>
+    <% gamble = m.gamble(:standard) %>
     <tr>
       <td><%= m.league.name %></td>
       <td><%= m.time.strftime("%m-%d %H:%M") %></td>
       <td><%= m.home.name %></td>
       <td><%= m.away.name %></td>
-      <td><%= data['home_odd'] %></td>
-      <td><%= data['draw_odd'] %></td>
-      <td><%= data['away_odd'] %></td>
+      <td><%= link_to gamble.data['home_odd'], new_bet_path + "?gamble=#{gamble.id}&result=home" %></td>
+      <td><%= link_to gamble.data['draw_odd'], new_bet_path + "?gamble=#{gamble.id}&result=draw" %></td>
+      <td><%= link_to gamble.data['away_odd'], new_bet_path + "?gamble=#{gamble.id}&result=away" %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
+<div class="ui overlay right sidebar" id="pjax-container">
+</div>

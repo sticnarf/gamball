@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
 
   def user_signed_in
     unless signed_in?
-      redirect_to new_session_url
+      redirect_to root_path
     end
   end
 
   def user_not_signed_in
-    redirect_to user_url(current_user) if signed_in?
+    redirect_to panel_url if signed_in?
   end
 end

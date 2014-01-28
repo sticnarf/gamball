@@ -1,0 +1,21 @@
+<div class="ui fluid form segment">
+  <div class="ui message">
+    <div class="header">
+      请确认信息是否正确
+    </div>
+    <p><%= @match.league.name %></p>
+    <p><%= @match.home.name %>&nbsp;VS&nbsp;<%= @match.away.name %></p>
+    <p><%= @match.time.strftime("%Y-%m-%d日 %H:%M") %></p>
+    <p>
+      猜测赛果为<b><%= trans_result(@bet.data['result']) %></b>&nbsp;
+      目前赔率为<%= @bet.gamble.data["#{@bet.data['result']}_odd"] %>
+    </p>
+  </div>
+  <%= form_for @bet do |f| %>
+    <div class="field">
+      <%= f.label :money, '投注金额' %>
+      <%= f.text_field :money, :placeholder => '投注金额不能超过你的现金数', :id => 'bet_money' %>
+    </div>
+    <div class="ui blue submit button">提交</div>
+  <% end %>
+</div>

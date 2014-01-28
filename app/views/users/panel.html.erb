@@ -11,15 +11,16 @@
   <div class="right menu">
     <div class="vertically fitted borderless item">
       <i class="money basic icon"></i>
-      10000
+      <%= current_user.money %>
     </div>
     <div class="ui dropdown item">
-      Username  <i class="dropdown icon"></i>
+      <%= current_user.name %>
+      <i class="dropdown icon"></i>
       <div class="menu">
-        <a class="item">
-          <i class="sign out icon"></i>
-          退出
-        </a>
+        <%= link_to session_path(current_user), :method => :delete, :class => 'item' do %>
+        退出
+        <i class="sign out icon"></i>
+        <% end %>
       </div>
     </div>
   </div>
