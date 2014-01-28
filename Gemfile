@@ -39,7 +39,7 @@ end
 
 group :test do
   gem 'faker', '~> 1.1.2'
-  gem 'launchy', '~> 2.3.0' 
+  gem 'launchy', '~> 2.3.0'
   gem 'rubyzip', '~> 1.0'
 end
 
@@ -59,5 +59,6 @@ gem 'semantic-ui-sass'
 gem 'i18n'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'capybara', '~> 2.1.0'
-gem 'capybara-webkit' 
+gem 'capybara-webkit'
 gem 'nokogiri'
+gem 'jquery-pjax-rails'

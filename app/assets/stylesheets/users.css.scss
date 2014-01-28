@@ -1,3 +1,15 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+iframe {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+#matches_index {
+  height: 100%;
+}
+
+.ui.vertical.menu {
+  width: auto;
+}

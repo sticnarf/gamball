@@ -1,9 +1,11 @@
 Gamball::Application.routes.draw do
   get "static/index"
   resources :users
+  resources :matches
   resources :sessions, only: [:new, :create, :destroy, :index]
 
   root 'static#index'
+  get 'panel' => 'users#panel'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
