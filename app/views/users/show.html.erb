@@ -1,15 +1,71 @@
-<table>
-  <tr>
-    <td>Email</td>
-    <td><%= @user.email %></td>
-  </tr>
-  <tr>
-    <td>Name</td>
-    <td><%= @user.name %></td>
-  </tr>
-  <tr>
-    <td>Encrypted Password</td>
-    <td><%= @user.password_digest %></td>
-  </tr>
-</table>
-<%= link_to 'Logout', session_path, :method => :delete, id: 'logout' %>
+<div class="ui transparent inverted main menu">
+  <a class="active item">
+    <i class="user icon"></i>  用户面板
+  </a>
+  <%= link_to hall_path, :class => "item" do %>
+  <i class="user icon"></i>  投注大厅
+  <% end %>
+  <a class="item">
+    <i class="edit icon"></i>  资料设置
+  </a>
+  <div class="right menu">
+    <div class="vertically fitted borderless item">
+      <i class="money basic icon"></i>
+      <span id="money"><%= current_user.money %></span>
+    </div>
+    <div class="ui dropdown item">
+      <%= current_user.name %>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <%= link_to session_path(current_user), :method => :delete, :class => 'item' do %>
+        退出
+        <i class="sign out icon"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui celled grid">
+  <div class="row">
+    <div class="six wide column">
+      <h4 class="ui block header">未结算的投注</h4>
+      <table class="ui table segment">
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>比赛</th>
+            <th>投注金额</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>巴傻罗那 VS 皇家马戏团</td>
+            <td>1000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="six wide column">
+      <h4 class="ui block header">已结算的投注</h4>
+      <table class="ui table segment">
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>比赛</th>
+            <th>投注金额</th>
+            <th>投注结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>AV米兰 VS 曼狗</td>
+            <td>1000</td>
+            <td>-1000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,9 @@
 <div class="ui transparent inverted main menu">
+  <%= link_to user_path(current_user), :class => "item" do %>
+  <i class="user icon"></i>  用户面板
+  <% end %>
   <a class="active item">
     <i class="legal icon"></i>  投注大厅
-  </a>
-  <a class="item">
-    <i class="users icon"></i>  好友列表
   </a>
   <a class="item">
     <i class="edit icon"></i>  资料设置
@@ -11,7 +11,7 @@
   <div class="right menu">
     <div class="vertically fitted borderless item">
       <i class="money basic icon"></i>
-      <%= current_user.money %>
+      <span id="money"><%= current_user.money %></span>
     </div>
     <div class="ui dropdown item">
       <%= current_user.name %>

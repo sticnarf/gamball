@@ -5,8 +5,13 @@ ready = ->
   if $('body').attr('controller') == 'static' && $('body').attr('action') == 'index'
     $.pjax.defaults.scrollTo = false
     $(document).pjax('a', '#pjax-container', {push: false})
+    $('a').click ->
+      $("#pjax-container").slideUp()
+    $("#pjax-container").hide();
     $(document).on('pjax:success', ->
-      $('html, body').animate({ scrollTop: $(document).height() })
+      $("#pjax-container").slideDown(200, ->
+        $('html, body').animate({ scrollTop: $(document).height() })
+      )
       $('form').submit((event) ->
         $.pjax.submit(event, '#pjax-container', {push: false})
       )

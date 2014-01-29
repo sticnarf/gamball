@@ -4,6 +4,7 @@ class StaticController < ApplicationController
   def index
   end
 
-  def panel
+
+  def redirect
   end
 end

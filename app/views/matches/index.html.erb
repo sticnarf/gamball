@@ -1,32 +1,34 @@
-<table class="ui celled table segment" id="matches">
-  <thead>
-    <tr>
-      <th rowspan="2">赛事</th>
-      <th rowspan="2">时间</th>
-      <th rowspan="2">主队</th>
-      <th rowspan="2">客队</th>
-      <th colspan="3">标准盘</th>
-    </tr>
-    <tr>
-      <th>主队胜</th>
-      <th>打平</th>
-      <th>客队胜</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @matches.each do |m| %>
-    <% gamble = m.gamble(:standard) %>
-    <tr>
-      <td><%= m.league.name %></td>
-      <td><%= m.time.strftime("%m-%d %H:%M") %></td>
-      <td><%= m.home.name %></td>
-      <td><%= m.away.name %></td>
-      <td><%= link_to gamble.data['home_odd'], new_bet_path + "?gamble=#{gamble.id}&result=home" %></td>
-      <td><%= link_to gamble.data['draw_odd'], new_bet_path + "?gamble=#{gamble.id}&result=draw" %></td>
-      <td><%= link_to gamble.data['away_odd'], new_bet_path + "?gamble=#{gamble.id}&result=away" %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<div class="ui overlay right sidebar" id="pjax-container">
+<div id="table">
+  <table class="ui celled table segment" id="matches">
+    <thead>
+      <tr>
+        <th rowspan="2">赛事</th>
+        <th rowspan="2">时间</th>
+        <th rowspan="2">主队</th>
+        <th rowspan="2">客队</th>
+        <th colspan="3">标准盘</th>
+      </tr>
+      <tr>
+        <th>主队胜</th>
+        <th>打平</th>
+        <th>客队胜</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @matches.each do |m| %>
+      <% gamble = m.gamble(:standard) %>
+      <tr>
+        <td><%= m.league.name %></td>
+        <td><%= m.time.strftime("%m-%d %H:%M") %></td>
+        <td><%= m.home.name %></td>
+        <td><%= m.away.name %></td>
+        <td><%= link_to gamble.data['home_odd'], new_bet_path + "?gamble=#{gamble.id}&result=home" %></td>
+        <td><%= link_to gamble.data['draw_odd'], new_bet_path + "?gamble=#{gamble.id}&result=draw" %></td>
+        <td><%= link_to gamble.data['away_odd'], new_bet_path + "?gamble=#{gamble.id}&result=away" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="ui overlay right wide sidebar" id="pjax-container">
 </div>

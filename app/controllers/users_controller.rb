@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :user_not_signed_in, :only => [:new, :create, :index]
-  before_action :user_signed_in, :only => [:show, :panel]
+  before_action :user_signed_in, :only => [:show, :panel, :money]
 
   def show
     @user = User.find(params[:id])
@@ -26,7 +26,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def panel
+  def hall
+  end
+
+  def money
+    render :text => current_user.money
   end
 
   private

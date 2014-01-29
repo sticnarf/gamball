@@ -5,17 +5,26 @@
     </div>
     <p><%= @match.league.name %></p>
     <p><%= @match.home.name %>&nbsp;VS&nbsp;<%= @match.away.name %></p>
-    <p><%= @match.time.strftime("%Y-%m-%d日 %H:%M") %></p>
+    <p><%= @match.time.strftime("%Y-%m-%d %H:%M") %></p>
     <p>
-      猜测赛果为<b><%= trans_result(@bet.data['result']) %></b>&nbsp;
+      猜测赛果为<b><%= trans_result(@bet.data['result']) %></b><br/>
       目前赔率为<%= @bet.gamble.data["#{@bet.data['result']}_odd"] %>
     </p>
   </div>
   <%= form_for @bet do |f| %>
-    <div class="field">
+    <%= content_tag :div, class: @error ? 'error field' : 'field' do %>
       <%= f.label :money, '投注金额' %>
       <%= f.text_field :money, :placeholder => '投注金额不能超过你的现金数', :id => 'bet_money' %>
+      <% if @error %>
+        <div class="ui red pointing above ui label">请输入正确的投注金额</div>
+      <% end %>
+    <% end %>
+    <div class="field">
+      <label>金额确认</label>
+      <input type="text" id="confirm" disabled />
     </div>
-    <div class="ui blue submit button">提交</div>
+    <%= hidden_field_tag 'gamble', @bet.gamble_id %>
+    <%= hidden_field_tag 'result', @bet.data['result'] %>
+    <%= f.submit "提交", :id => 'submit', :class => 'ui blue submit button' %>
   <% end %>
 </div>

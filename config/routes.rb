@@ -6,7 +6,9 @@ Gamball::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy, :index]
 
   root 'static#index'
-  get 'panel' => 'users#panel', :as => :panel
+  get 'hall' => 'users#hall', :as => :hall
+  get 'root' => 'static#redirect', :as => :to_root
+  get 'money' => 'users#money'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
