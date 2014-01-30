@@ -1,3 +1,4 @@
+<% if @matches.any? %>
 <div id="table">
   <table class="ui celled table segment" id="matches">
     <thead>
@@ -32,3 +33,15 @@
 </div>
 <div class="ui overlay right wide sidebar" id="pjax-container">
 </div>
+<% else %>
+<div class="ui icon large warning message">
+  <i class="frown icon"></i>
+  <div class="content">
+    <div class="header">
+      对不起，找不到可以投注的比赛
+    </div>
+    <p>您是否没有选择左边的赛事？</p>
+    <p>如果已经选取，那么在您选择的赛事中真的没有可以投注的比赛了。</p>
+  </div>
+</div>
+<% end %>

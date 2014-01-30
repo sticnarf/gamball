@@ -18,8 +18,9 @@ feature 'User management' do
       sleep 0.5
     }.to change(User, :count).by 1
     user = User.find_by(email: email)
-    expect(current_path).to eq user_path(user)
+    expect(current_path).to eq panel_path
     signed_in_check(user)
+    find_by_id('menu').click
     click_link 'logout'
     expect(current_path).to eq root_path
     click_link 'reg'
@@ -39,7 +40,7 @@ feature 'User management' do
     fill_in 'session_password', with: password
     click_button 'submit'
     sleep 0.5
-    expect(current_path).to eq user_path(user)
+    expect(current_path).to eq panel_path
     signed_in_check(user)
   end
 end
@@ -48,9 +49,9 @@ private
 
 def signed_in_check(user)
   visit root_path
-  expect(current_path).to eq user_path(user)
+  expect(current_path).to eq panel_path
   visit new_session_path
-  expect(current_path).to eq user_path(user)
+  expect(current_path).to eq panel_path
   visit new_user_path
-  expect(current_path).to eq user_path(user)
+  expect(current_path).to eq panel_path
 end

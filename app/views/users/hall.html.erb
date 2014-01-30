@@ -1,5 +1,5 @@
 <div class="ui transparent inverted main menu">
-  <%= link_to user_path(current_user), :class => "item" do %>
+  <%= link_to panel_url, :class => "item" do %>
   <i class="user icon"></i>  用户面板
   <% end %>
   <a class="active item">
@@ -32,15 +32,15 @@
         <i class="globe icon"></i>
         赛事
       </div>
-      <a class="active teal item">
-        英超
-      </a>
-      <a class="item">
-        XXX
-      </a>
+      <% @leagues.each do |l| %>
+      <%= content_tag :a, l.name,
+        :class => @active_leagues.include?(l.id) ? "active item league" : "item league",
+        :league_id => l.id %>
+      <% end %>
     </div>
   </div>
   <div class="fourteen wide column" id="matches_index">
-    <iframe src="/matches"></iframe>
+    <i class="massive loading icon"></i>
+    <iframe></iframe>
   </div>
 </div>

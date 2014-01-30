@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     user = User.find_by(:email => params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in(user)
-      redirect_to user_url(user)
+      redirect_to panel_url
     else
       @error = true
       render :template => 'sessions/new', :layout => false

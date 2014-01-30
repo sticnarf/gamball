@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_signed_in
-    redirect_to hall_url if signed_in?
+    redirect_to panel_url if signed_in?
   end
 end

@@ -20,17 +20,24 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in(@user)
-      redirect_to user_url(@user)
+      redirect_to panel_url
     else
       render :template => 'users/new', :layout => false
     end
   end
 
   def hall
+    @active_leagues = current_user.active_leagues || []
+    @leagues = League.all
   end
 
   def money
     render :text => current_user.money
+  end
+
+  def panel
+    @unsettled = Bet.where(:user => current_user, :settled => false)
+    @settled = Bet.where(:user => current_user, :settled => true)
   end
 
   private

@@ -7,6 +7,7 @@ Gamball::Application.routes.draw do
 
   root 'static#index'
   get 'hall' => 'users#hall', :as => :hall
+  get 'panel' => 'users#panel', :as => :panel
   get 'root' => 'static#redirect', :as => :to_root
   get 'money' => 'users#money'
   # The priority is based upon order of creation: first created -> highest priority.

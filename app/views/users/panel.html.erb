@@ -1,0 +1,81 @@
+<div class="ui transparent inverted main menu">
+  <a class="active item">
+    <i class="user icon"></i>  用户面板
+  </a>
+  <%= link_to hall_path, :class => "item" do %>
+  <i class="legal icon"></i>  投注大厅
+  <% end %>
+  <a class="item">
+    <i class="edit icon"></i>  资料设置
+  </a>
+  <div class="right menu">
+    <div class="vertically fitted borderless item">
+      <i class="money basic icon"></i>
+      <span id="money"><%= current_user.money %></span>
+    </div>
+    <div class="ui dropdown item" id="menu">
+      <%= current_user.name %>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <%= link_to session_path(current_user), :method => :delete, :class => 'item', :id => 'logout' do %>
+        退出
+        <i class="sign out icon"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui celled grid">
+  <div class="row">
+    <div class="six wide column">
+      <h4 class="ui block header">未结算的投注</h4>
+      <table class="ui table segment">
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>比赛</th>
+            <th>投注金额</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% index = 0 %>
+          <% @unsettled.each do |b| %>
+          <% index += 1 %>
+          <tr>
+            <td><%= index %></td>
+            <% match = b.gamble.match %>
+            <td><%= match.home.name %>&nbsp;VS&nbsp;<%= match.away.name %></td>
+            <td><%= b.money %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="six wide column">
+      <h4 class="ui block header">已结算的投注</h4>
+      <table class="ui table segment">
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>比赛</th>
+            <th>投注金额</th>
+            <th>投注结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% index = 0 %>
+          <% @settled.each do |b| %>
+          <% index += 1 %>
+          <tr>
+            <td><%= index %></td>
+            <% match = b.gamble.match %>
+            <td><%= match.home.name %>&nbsp;VS&nbsp;<%= match.away.name %></td>
+            <td><%= b.money %></td>
+            <td><%= b.data['change'] %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
